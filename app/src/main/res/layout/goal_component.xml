@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.android.smartgoals.R" />
+
+        <variable
+            name="componentName"
+            type="java.lang.String" />
+
+        <variable
+            name="componentDescription"
+            type="java.lang.String" />
+
+        <variable
+            name="shouldShow"
+            type="Boolean" />
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="backgroundColour"
+            type="java.lang.Integer" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{onClick}"
+        app:cardBackgroundColor="@{shouldShow ? @color/dark_silver : @color/white}"
+        app:cardCornerRadius="5dp"
+        app:strokeColor="@color/dark_silver"
+        app:strokeWidth="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp">
+
+            <TextView
+                android:id="@+id/text_view_completed_component_name"
+                app:completedTextTitle="@{componentName}"
+                app:completedColourFirst="@{@color/burnt_sienna}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:visibility="@{shouldShow ? View.VISIBLE : View.GONE, default=gone}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="completed component name"
+                tools:visibility="visible"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/text_view_component_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:textTitle="@{componentName}"
+                app:colourFirst="@{@color/burnt_sienna}"
+                android:textColor="@color/dark_silver"
+                android:textSize="17sp"
+                android:visibility="@{shouldShow ? View.GONE : View.VISIBLE, default=visible}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="component name" />
+
+            <TextView
+                android:layout_marginTop="2dp"
+                android:id="@+id/text_view_component_description"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@{componentDescription}"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:visibility="@{shouldShow ? View.VISIBLE : View.GONE, default=gone}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/image_view_component_done"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_view_completed_component_name"
+                tools:text="component descriptionfgd"
+                tools:visibility="visible"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginEnd="20dp"/>
+
+            <ImageView
+                android:id="@+id/image_view_component_done"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="Component Done"
+                android:src="@drawable/ic_goal_component_done"
+                android:visibility="@{shouldShow ? View.VISIBLE : View.GONE, default=gone}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
+
+

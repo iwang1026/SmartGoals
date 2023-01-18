@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/goalListFragment">
+
+    <fragment
+        android:id="@+id/goalListFragment"
+        android:name="com.android.smartgoals.fragments.GoalListFragment"
+        android:label="Goal List"
+        tools:layout="@layout/fragment_goal_list" >
+        <action
+            android:id="@+id/action_goalListFragment_to_addGoalWizardFragment"
+            app:destination="@id/addGoalWizardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addGoalWizardFragment"
+        android:name="com.android.smartgoals.fragments.AddGoalWizardFragment"
+        android:label="Add Goal"
+        tools:layout="@layout/fragment_add_goal_wizard" >
+        <action
+            android:id="@+id/action_addGoalWizardFragment_to_specificFragment"
+            app:destination="@id/specificFragment" />
+        <argument
+            android:name="specificGoal"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/specificFragment"
+        android:name="com.android.smartgoals.fragments.SpecificFragment"
+        android:label="S in SMART - Specific"
+        tools:layout="@layout/fragment_specific" >
+        <action
+            android:id="@+id/action_specificFragment_to_addGoalWizardFragment"
+            app:destination="@id/addGoalWizardFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="text"
+            type="java.lang.String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="top">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="14dp"
+            android:src="@drawable/ic_arrow"
+            app:tint="@color/dark_silver" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{text}"
+            android:textSize="12sp"
+            tools:text="Some example/hint here"/>
+
+    </LinearLayout>
+</layout>

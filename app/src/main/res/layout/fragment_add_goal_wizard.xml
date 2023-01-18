@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="specificOnClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="specificDescription"
+            type="java.lang.String" />
+
+        <variable
+            name="specificName"
+            type="java.lang.String" />
+
+        <variable
+            name="specificShouldShow"
+            type="Boolean" />
+
+        <variable
+            name="measurableOnClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="relevantOnClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="achievableOnClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="timeBoundOnClick"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="34dp"
+        android:layout_marginVertical="23dp"
+        android:orientation="vertical"
+        tools:context=".fragments.AddGoalWizardFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Go through each piece in any order to help you create your SMART goal." />
+
+        <include
+            android:id="@+id/goal_component_specific"
+            layout="@layout/goal_component"
+            app:componentDescription="@{specificDescription}"
+            app:componentName="@{`Specific`}"
+            app:onClick="@{specificOnClick}"
+            app:shouldShow="@{specificShouldShow}"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <include
+            android:id="@+id/goal_component_measurable"
+            layout="@layout/goal_component"
+            app:componentDescription="@{`I want to read a book`}"
+            app:componentName="@{`Measurable`}"
+            app:onClick="@{measurableOnClick}"
+            app:shouldShow="@{false}" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <include
+            android:id="@+id/goal_component_achievable"
+            layout="@layout/goal_component"
+            app:componentDescription="@{`I want to read a book`}"
+            app:componentName="@{`Achievable`}"
+            app:onClick="@{achievableOnClick}"
+            app:shouldShow="@{false}" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <include
+            android:id="@+id/goal_component_relevant"
+            layout="@layout/goal_component"
+            app:componentDescription="@{`I want to read a book`}"
+            app:componentName="@{`Relevant`}"
+            app:onClick="@{relevantOnClick}"
+            app:shouldShow="@{false}" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <include
+            android:id="@+id/goal_component_time_bound"
+            layout="@layout/goal_component"
+            app:componentDescription="@{`I want to read a book`}"
+            app:componentName="@{`Time-bound`}"
+            app:onClick="@{timeBoundOnClick}"
+            app:shouldShow="@{false}" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_add_goal"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/burnt_sienna"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="Add goal"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            app:cornerRadius="2dp" />
+
+    </LinearLayout>
+</layout>
