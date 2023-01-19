@@ -73,18 +73,6 @@ class SpecificFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.buttonState.collectLatest { state ->
                 whatButtonDo(state)
-//                if(state == ButtonState.CONFIRM) {
-//                    binding.buttonAddGoal.text = "Confirm"
-//                    binding.buttonAddGoal.isEnabled = false
-//                    binding.textInputGoal.visibility = View.VISIBLE
-//
-//                    binding.textInputEditTextGoal.addTextChangedListener {
-//                        binding.buttonAddGoal.isEnabled =
-//                            binding.textInputEditTextGoal.text.toString().isNotEmpty()
-//                    }
-//                } else { //default state, ready to answer
-//
-//                }
             }
         }
     }
@@ -99,22 +87,18 @@ class SpecificFragment : Fragment() {
         }
     }
 
-    private fun whatButtonDo(buttonState: ButtonState) {
+    private fun whatButtonDo(buttonState: ButtonState) { //TODO change name of this
         when(buttonState) {
             ButtonState.READYTOANSWER -> {
                 binding.buttonAddGoal.text = "Confirm"
-//                binding.buttonAddGoal.isEnabled = false
+                binding.buttonAddGoal.isEnabled = activityViewModel.specificGoalComponent.value.description.isNotEmpty()
                 binding.textInputGoal.visibility = View.VISIBLE
 
-                if (!activityViewModel.specificGoalComponent.value.completed) {
                     Log.d("SpecificComponent", "!activityViewModel.specificGoalComponent.value.completed")
                     binding.textInputEditTextGoal.addTextChangedListener {
                         binding.buttonAddGoal.isEnabled =
                             binding.textInputEditTextGoal.text.toString().isNotEmpty()
                     }
-                } else {
-                    Log.d("SpecificComponent", "else of !activityViewModel.specificGoalComponent.value.completed")
-                }
             }
             ButtonState.CONFIRM -> {
                 //TODO save to local storage

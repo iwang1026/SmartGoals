@@ -42,12 +42,13 @@
         android:layout_marginVertical="23dp"
         android:orientation="vertical"
         tools:context=".fragments.AddGoalWizardFragment">
+<!--        TODO need to figure out how to setup the different font weights here-->
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="Go through each piece in any order to help you create your SMART goal." />
+            android:text="Go through each piece in any order to help you create your SMART goal."/>
 
         <include
             android:id="@+id/goal_component_specific"
