@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <import type="android.view.View" />
 
         <variable
@@ -28,191 +26,15 @@
         android:orientation="vertical"
         tools:context=".fragments.SpecificFragment">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="What is your specific goal?"
-            android:textColor="@color/dark_silver"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Simple, Sensible, Significant"
-            android:textColor="@color/dark_silver"
-            android:textSize="16sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Your goal should be clear and specific, otherwise you won't be able to focus your efforts or feel truly motivated to achieve it."
-            android:textColor="@color/dark_silver"
-            android:textSize="14sp" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_view_hint"
-            style="@style/CustomCardViewStyleTop"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            app:strokeColor="@color/light_silver"
-            app:strokeWidth="1dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="15dp"
-                    android:src="@drawable/ic_hint" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="Show hint"
-                    android:textSize="14sp" />
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <ImageView
-                    android:id="@+id/image_view_arrow_hint"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="15dp"
-                    android:paddingEnd="0dp"
-                    app:cardExpanded="@{hintExpanded}"
-                    app:tint="@color/dark_silver" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <FrameLayout
-            android:id="@+id/frame_layout_hint_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border"
-            android:visibility="@{hintExpanded ? View.VISIBLE : View.GONE, default=gone}"
-            tools:visibility="visible">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:text="Use the following questions to help you answer this question:"
-                    android:textSize="12sp" />
-
-                <include
-                    layout="@layout/component_text"
-                    app:text="@{`How can I accomplish this goal?`}"/>
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"/>
-
-                <include
-                    layout="@layout/component_text"
-                    app:text="@{`How realistic is the goal, based on other constraints, such as financial factors?`}"/>
-
-            </LinearLayout>
-        </FrameLayout>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_view_example"
-            style="@style/CustomCardViewStyleBottom"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            app:strokeColor="@color/light_silver"
-            app:strokeWidth="1dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="15dp"
-                    android:src="@drawable/ic_examples" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="Show examples"
-                    android:textSize="14sp" />
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <ImageView
-                    android:id="@+id/image_view_arrow_example"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="15dp"
-                    android:paddingEnd="0dp"
-                    app:cardExpanded="@{exampleExpanded}"
-                    app:tint="@color/dark_silver" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card_example_text"
-            style="@style/CustomCardViewStyleBottom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="@{exampleExpanded ? View.VISIBLE : View.GONE, default=gone}"
-            app:strokeColor="@color/light_silver"
-            app:strokeWidth="1dp"
-            tools:visibility="visible">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginVertical="14dp"
-                android:orientation="vertical">
-
-                <include
-                    layout="@layout/component_text"
-                    app:text="@{`I will eat a minimum of 5 servings of fruits and vegetables daily.`}"/>
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"/>
-
-                <include
-                    layout="@layout/component_text"
-                    app:text="@{`I will work out a minimum of 20 minutes per day, three days a week.`}"/>
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"/>
-
-                <include
-                    layout="@layout/component_text"
-                    app:text="@{`For the next year, I will save 15% of every paycheck, which is between $200-$300.`}"/>
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        <include
+            android:id="@+id/included_specific"
+            layout="@layout/common_component"
+            app:title="@{@string/component_specific_heading}"
+            app:expanded="@{@string/component_specific_expanded}"
+            app:description="@{@string/component_specific_description}"
+            app:hintText="@{@string/component_specific_hint_1}"
+            app:hintExpanded="@{hintExpanded}"
+            app:exampleExpanded="@{exampleExpanded}"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_goal"
@@ -220,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:hint="Enter your specific goal here..."
+            android:hint="@string/component_specific_answer"
             android:visibility="gone"
             tools:visibility="visible">
 
@@ -242,7 +64,7 @@
             android:backgroundTint="@color/burnt_sienna"
             android:minWidth="0dp"
             android:minHeight="0dp"
-            android:text="Ready to answer this question?"
+            android:text="@string/general_ready_to_answer"
             android:textAllCaps="false"
             android:textSize="14sp"
             app:cornerRadius="2dp" />

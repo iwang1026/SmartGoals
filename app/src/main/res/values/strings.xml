@@ -2,4 +2,24 @@
     <string name="app_name">SmartGoals</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="general_show_hint">Show hint</string>
+    <string name="general_show_examples">Show examples</string>
+    <string name="general_ready_to_answer">Ready to answer this question?</string>
+
+    <string name="component_specific">Specific</string>
+    <string name="component_specific_heading">What is your specific goal?</string>
+    <string name="component_specific_expanded">Simple, Sensible, Significant</string>
+    <string name="component_specific_description">Your goal should be clear and specific, otherwise you won\'t be able to focus your efforts or feel truly motivated to achieve it.</string>
+    <string name="component_specific_hint_1">Use the 5 Ws to help you answer this question::</string>
+    <string name="component_specific_hint_2">What do I want to accomplish?</string>
+    <string name="component_specific_hint_3">Why is this goal important?</string>
+    <string name="component_specific_hint_4">Who is involved?</string>
+    <string name="component_specific_hint_5">Where is it located?</string>
+    <string name="component_specific_hint_6">Which resources or limits are involved?</string>
+    <string name="component_specific_example_1">I will eat a minimum of 5 servings of fruits and vegetables daily.</string>
+    <string name="component_specific_example_2">I will work out a minimum of 20 minutes per day, three days a week.</string>
+    <string name="component_specific_example_3">For the next year, I will save 15% of every paycheck, which is between $200-$300.</string>
+    <string name="component_specific_answer">Enter your specific goal here…</string>
+
 </resources>

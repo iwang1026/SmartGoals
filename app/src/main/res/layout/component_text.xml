@@ -3,12 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-        <variable
-            name="text"
-            type="java.lang.String" />
-    </data>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,9 +16,10 @@
             app:tint="@color/dark_silver" />
 
         <TextView
+            android:id="@+id/text_view_hint_example"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{text}"
+            android:text="test"
             android:textSize="12sp"
             tools:text="Some example/hint here"/>
 

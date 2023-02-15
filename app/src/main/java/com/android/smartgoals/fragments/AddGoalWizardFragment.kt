@@ -40,8 +40,10 @@ class AddGoalWizardFragment : Fragment() {
 
         binding.buttonAddGoal.setOnClickListener {
             Toast.makeText(context, "button add goal clicked", Toast.LENGTH_SHORT).show()
+            activity?.onBackPressed()
         }
         binding.specificOnClick = View.OnClickListener { findNavController().navigate(R.id.specificFragment) }
+        binding.measurableOnClick = View.OnClickListener { findNavController().navigate(R.id.measurableFragment) }
 
         lifecycleScope.launch {
             mainViewModel.specificGoalComponent.collectLatest { component ->

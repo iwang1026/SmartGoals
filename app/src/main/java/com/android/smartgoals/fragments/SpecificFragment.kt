@@ -6,10 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.smartgoals.R
+import com.android.smartgoals.adapters.HintExampleRecyclerViewAdapter
 import com.android.smartgoals.databinding.FragmentSpecificBinding
 import com.android.smartgoals.viewmodels.ButtonState
 import com.android.smartgoals.viewmodels.MainViewModel
@@ -75,14 +79,38 @@ class SpecificFragment : Fragment() {
                 whatButtonDo(state)
             }
         }
+
+        binding.includedSpecific.recyclerViewHint.layoutManager = LinearLayoutManager(context)
+        binding.includedSpecific.recyclerViewHint.adapter = HintExampleRecyclerViewAdapter(
+           listOf(
+               resources.getString(R.string.component_specific_hint_2),
+               resources.getString(R.string.component_specific_hint_3),
+               resources.getString(R.string.component_specific_hint_4),
+               resources.getString(R.string.component_specific_hint_5),
+               resources.getString(R.string.component_specific_hint_6),
+           )
+        )
+
+        binding.includedSpecific.recyclerViewExample.layoutManager = LinearLayoutManager(context)
+        binding.includedSpecific.recyclerViewExample.adapter = HintExampleRecyclerViewAdapter(
+            listOf(
+                resources.getString(R.string.component_specific_example_1),
+                resources.getString(R.string.component_specific_example_2),
+                resources.getString(R.string.component_specific_example_3)
+            )
+        )
+
     }
 
     private fun setupOnClickListeners() {
-        binding.cardViewHint.setOnClickListener {
+        binding.includedSpecific.cardViewHint.setOnClickListener {
             viewModel.onExpandedHint()
         }
 
-        binding.cardViewExample.setOnClickListener {
+//        binding.includedSpecific.cardViewExample.setOnClickListener {
+//            viewModel.onExpandedExample()
+//        }
+        binding.includedSpecific.cardViewExample.setOnClickListener {
             viewModel.onExpandedExample()
         }
     }

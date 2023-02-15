@@ -26,6 +26,9 @@
             android:name="specificGoal"
             app:argType="string"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_addGoalWizardFragment_to_measurableFragment"
+            app:destination="@id/measurableFragment" />
     </fragment>
     <fragment
         android:id="@+id/specificFragment"
@@ -34,6 +37,15 @@
         tools:layout="@layout/fragment_specific" >
         <action
             android:id="@+id/action_specificFragment_to_addGoalWizardFragment"
+            app:destination="@id/addGoalWizardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/measurableFragment"
+        android:name="com.android.smartgoals.fragments.MeasurableFragment"
+        android:label="M in SMART - Measurable"
+        tools:layout="@layout/fragment_measurable" >
+        <action
+            android:id="@+id/action_measurableFragment_to_addGoalWizardFragment"
             app:destination="@id/addGoalWizardFragment" />
     </fragment>
 </navigation>
