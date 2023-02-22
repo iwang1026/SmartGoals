@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.smartgoals.R
 import com.android.smartgoals.databinding.ComponentTextBinding
 
+/*
+This is a recycler view adapter aimed to provide flexible number of bullet points for both example and hint sections for each component
+ */
 class HintExampleRecyclerViewAdapter(private val textList: List<String>):
     RecyclerView.Adapter<HintExampleRecyclerViewAdapter.ViewHolder>() {
 

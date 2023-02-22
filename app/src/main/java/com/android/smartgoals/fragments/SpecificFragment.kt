@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
@@ -15,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.smartgoals.R
 import com.android.smartgoals.adapters.HintExampleRecyclerViewAdapter
 import com.android.smartgoals.databinding.FragmentSpecificBinding
-import com.android.smartgoals.viewmodels.ButtonState
+import com.android.smartgoals.models.ButtonState
 import com.android.smartgoals.viewmodels.MainViewModel
 import com.android.smartgoals.viewmodels.SpecificViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -42,6 +41,7 @@ class SpecificFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.d("SpecificComponent", "onViewCreated")
         setupOnClickListeners()
+        setupRecyclerViews()
 
         val goalComponentState = activityViewModel.specificGoalComponent.value
 
@@ -79,16 +79,18 @@ class SpecificFragment : Fragment() {
                 whatButtonDo(state)
             }
         }
+    }
 
+    private fun setupRecyclerViews() {
         binding.includedSpecific.recyclerViewHint.layoutManager = LinearLayoutManager(context)
         binding.includedSpecific.recyclerViewHint.adapter = HintExampleRecyclerViewAdapter(
-           listOf(
-               resources.getString(R.string.component_specific_hint_2),
-               resources.getString(R.string.component_specific_hint_3),
-               resources.getString(R.string.component_specific_hint_4),
-               resources.getString(R.string.component_specific_hint_5),
-               resources.getString(R.string.component_specific_hint_6),
-           )
+            listOf(
+                resources.getString(R.string.component_specific_hint_2),
+                resources.getString(R.string.component_specific_hint_3),
+                resources.getString(R.string.component_specific_hint_4),
+                resources.getString(R.string.component_specific_hint_5),
+                resources.getString(R.string.component_specific_hint_6),
+            )
         )
 
         binding.includedSpecific.recyclerViewExample.layoutManager = LinearLayoutManager(context)
@@ -99,7 +101,6 @@ class SpecificFragment : Fragment() {
                 resources.getString(R.string.component_specific_example_3)
             )
         )
-
     }
 
     private fun setupOnClickListeners() {
@@ -107,25 +108,26 @@ class SpecificFragment : Fragment() {
             viewModel.onExpandedHint()
         }
 
-//        binding.includedSpecific.cardViewExample.setOnClickListener {
-//            viewModel.onExpandedExample()
-//        }
         binding.includedSpecific.cardViewExample.setOnClickListener {
             viewModel.onExpandedExample()
         }
     }
 
+    //TODO need to move this to VM, doing too much, need to figure out how
     private fun whatButtonDo(buttonState: ButtonState) { //TODO change name of this
         when(buttonState) {
             ButtonState.READYTOANSWER -> {
-                binding.buttonAddGoal.text = "Confirm"
-                binding.buttonAddGoal.isEnabled = activityViewModel.specificGoalComponent.value.description.isNotEmpty()
+                binding.buttonAddGoal.text = "Confirm" //this remains in fragment
+
+                //TODO need to pass in the value.isNotEmpty in as the isReadyToAnswer variable
+                binding.buttonAddGoal.isEnabled = activityViewModel.specificGoalComponent.value.description.isNotEmpty() //move this to VM, use isTextEmpty
                 binding.textInputGoal.visibility = View.VISIBLE
 
                     Log.d("SpecificComponent", "!activityViewModel.specificGoalComponent.value.completed")
                     binding.textInputEditTextGoal.addTextChangedListener {
                         binding.buttonAddGoal.isEnabled =
-                            binding.textInputEditTextGoal.text.toString().isNotEmpty()
+//                            binding.textInputEditTextGoal.text.toString().isNotEmpty()
+                        viewModel.isTextEmpty(binding.textInputEditTextGoal.toString())
                     }
             }
             ButtonState.CONFIRM -> {

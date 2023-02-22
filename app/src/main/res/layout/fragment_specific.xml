@@ -14,6 +14,10 @@
         <variable
             name="exampleExpanded"
             type="java.lang.Boolean" />
+
+        <variable
+            name="isReadyToAnswer"
+            type="java.lang.Boolean" />
     </data>
 
     <LinearLayout
@@ -43,8 +47,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:hint="@string/component_specific_answer"
-            android:visibility="gone"
-            tools:visibility="visible">
+            android:visibility="@{isReadyToAnswer ? View.VISIBLE: View.GONE, default=gone}"
+            tools:visibility="visible"
+            android:textColorHint="@color/light_silver">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/text_input_edit_text_goal"
@@ -53,7 +58,7 @@
                 android:gravity="start"
                 android:inputType="textMultiLine"
                 android:lines="3"
-                android:maxLines="7" />
+                android:maxLines="7"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton

@@ -80,8 +80,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
                     android:layout_marginStart="15dp"
                     android:src="@drawable/ic_hint" />
 
@@ -101,25 +101,20 @@
                     android:id="@+id/image_view_arrow_hint"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginEnd="10dp"
                     app:cardExpanded="@{hintExpanded}"
                     app:tint="@color/dark_silver" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <FrameLayout
-            android:id="@+id/frame_layout_hint_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border"
-            android:visibility="@{hintExpanded ? View.VISIBLE : View.GONE, default=gone}"
-            tools:visibility="visible">
-
             <LinearLayout
                 android:id="@+id/linear_layout_hint_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:visibility="@{hintExpanded ? View.VISIBLE : View.GONE, default=gone}"
+                android:orientation="vertical"
+                tools:visibility="visible"
+                android:background="@drawable/border">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -139,7 +134,6 @@
                     android:layout_height="wrap_content"/>
 
             </LinearLayout>
-        </FrameLayout>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_view_example"
@@ -156,8 +150,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
                     android:layout_marginStart="15dp"
                     android:src="@drawable/ic_examples" />
 
@@ -177,50 +171,31 @@
                     android:id="@+id/image_view_arrow_example"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginEnd="10dp"
                     android:paddingEnd="0dp"
                     app:cardExpanded="@{exampleExpanded}"
                     app:tint="@color/dark_silver" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-<!--        <com.google.android.material.card.MaterialCardView-->
-<!--            android:id="@+id/card_example_text"-->
-<!--            style="@style/CustomCardViewStyleBottom"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:visibility="@{exampleExpanded ? View.VISIBLE : View.GONE, default=gone}"-->
-<!--            app:strokeColor="@color/light_silver"-->
-<!--            app:strokeWidth="1dp"-->
-<!--            tools:visibility="visible">-->
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/recycler_view_example"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent" />-->
-<!--        </com.google.android.material.card.MaterialCardView>-->
-
-        <FrameLayout
-            android:id="@+id/frame_layout_example_text"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_example_text"
+            style="@style/CustomCardViewStyleBottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/border"
-            android:visibility="@{exampleExpanded ? View.VISIBLE : View.GONE, default=gone}"
+            android:visibility="@{exampleExpanded ? View.VISIBLE : View.GONE}"
+            app:strokeColor="@color/light_silver"
+            app:strokeWidth="1dp"
             tools:visibility="visible">
 
-<!--            <LinearLayout-->
-<!--                android:id="@+id/linear_layout_example_text"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical">-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:paddingVertical="15dp"
+                android:paddingHorizontal="15dp"
+                android:id="@+id/recycler_view_example"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_example"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-<!--            </LinearLayout>-->
-        </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </layout>

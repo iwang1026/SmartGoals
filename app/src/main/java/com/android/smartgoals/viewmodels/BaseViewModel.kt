@@ -5,8 +5,7 @@ import com.android.smartgoals.models.ButtonState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class SpecificViewModel: ViewModel() {
-//class SpecificViewModel: BaseViewModel() {
+open class BaseViewModel: ViewModel() {
     private val _expandedHint = MutableStateFlow(false)
     val expandedHint: StateFlow<Boolean> = _expandedHint
 
@@ -27,9 +26,4 @@ class SpecificViewModel: ViewModel() {
     fun onButtonClicked(state: ButtonState) {
         _buttonState.value = state
     }
-
-    fun isTextEmpty(text: String): Boolean {
-        return text.isNotEmpty()
-    }
 }
-

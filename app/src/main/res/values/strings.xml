@@ -11,7 +11,7 @@
     <string name="component_specific_heading">What is your specific goal?</string>
     <string name="component_specific_expanded">Simple, Sensible, Significant</string>
     <string name="component_specific_description">Your goal should be clear and specific, otherwise you won\'t be able to focus your efforts or feel truly motivated to achieve it.</string>
-    <string name="component_specific_hint_1">Use the 5 Ws to help you answer this question::</string>
+    <string name="component_specific_hint_1">Use the 5 Ws to help you answer this question:</string>
     <string name="component_specific_hint_2">What do I want to accomplish?</string>
     <string name="component_specific_hint_3">Why is this goal important?</string>
     <string name="component_specific_hint_4">Who is involved?</string>
@@ -22,4 +22,20 @@
     <string name="component_specific_example_3">For the next year, I will save 15% of every paycheck, which is between $200-$300.</string>
     <string name="component_specific_answer">Enter your specific goal here…</string>
 
+    <string name="component_measurable">Measurable</string>
+    <string name="component_measurable_heading">How will this goal be measured?</string>
+    <string name="component_measurable_expanded">Meaningful, Motivating</string>
+    <string name="component_measurable_description">It\'s important to have measurable goals, so that you can track your progress and stay motivated. Assessing progress helps you to stay focused, meet your deadlines, and feel the excitement of getting closer to achieving your goal.</string>
+    <string name="component_measurable_hint_1">Use the following questions to help you answer this question:</string>
+    <string name="component_measurable_hint_2">How much?</string>
+    <string name="component_measurable_hint_3">How many?</string>
+    <string name="component_measurable_hint_4">How will I know when it is accomplished?</string>
+    <string name="component_measurable_example_1">The goal is to go grocery shopping once a week and buy X amount of veggies and fruits that I can cut up in daily serving sizes.</string>
+    <string name="component_measurable_example_2">I will measure my progress using a fitness tracker and calendar, making sure I complete my 20-minute workouts. </string>
+    <string name="component_measurable_example_3">My bank will automatically take 15% and deposit it into another savings account, so I can see my progress.</string>
+    <string name="component_measurable_metric_1">Frequency</string>
+    <string name="component_measurable_metric_2">Target</string>
+    <string name="component_measurable_metric_3">Count</string>
+    <string name="component_measurable_metric_4">Other</string>
+    <string name="component_measurable_answer">Enter your measurement here…</string>
 </resources>

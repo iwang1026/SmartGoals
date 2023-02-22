@@ -1,23 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View" />
 
+        <variable
+            name="hintExpanded"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="exampleExpanded"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="isReadyToAnswer"
+            type="java.lang.Boolean" />
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="35dp"
-        tools:context=".fragments.MeasurableFragment">
+        android:layout_height="wrap_content">
 
-        <include
-            layout="@layout/common_component"
-            app:title="@{`How will this goal be measured?`}"
-            app:expanded="@{`Meaningful, Motivating`}"
-            app:description="@{`It's important to have measurable goals, so that you can track your progress and stay motivated. Assessing progress helps you to stay focused, meet your deadlines, and feel the excitement of getting closer to achieving your goal.`}"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="35dp"
+            tools:context=".fragments.MeasurableFragment"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <include
+                android:id="@+id/included_measurable"
+                layout="@layout/common_component"
+                app:title="@{@string/component_measurable_heading}"
+                app:expanded="@{@string/component_measurable_expanded}"
+                app:description="@{@string/component_measurable_description}"
+                app:hintText="@{@string/component_measurable_hint_1}"
+                app:hintExpanded="@{hintExpanded}"
+                app:exampleExpanded="@{exampleExpanded}"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose your method of measurement"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="15dp"
+                android:visibility="@{isReadyToAnswer ? View.VISIBLE: View.GONE, default=gone}"
+                tools:visibility="visible"/>
+
+            <Spinner
+                android:id="@+id/spinner_measurement_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:visibility="@{isReadyToAnswer ? View.VISIBLE: View.GONE, default=gone}"
+                android:background="@drawable/spinnerborder"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_measurement_value"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/component_measurable_answer"
+                android:visibility="@{isReadyToAnswer ? View.VISIBLE: View.GONE, default=gone}"
+                tools:visibility="visible"
+                android:textColorHint="@color/light_silver">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_input_edit_text_goal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_add_goal"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/burnt_sienna"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/general_ready_to_answer"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:cornerRadius="2dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
 </layout>
